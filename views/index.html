@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Posts</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>Blog Posts</h1>
+  <form id="postForm">
+    <input type="text" id="title" placeholder="Post Title" required>
+    <textarea id="content" placeholder="Post Content" required></textarea>
+    <input type="text" id="user_id" placeholder="User ID" required>
+    <button type="submit">Create Post</button>
+  </form>
+
+  <div id="posts">
+    <h2>Title</h2>
+    <p>Content</p>
+    <button onclick="deletePost(3)">Delete</button>
+  </div>
+  
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
