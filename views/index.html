@@ -1,26 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Posts</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <title>Blog</title>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-  <h1>Blog Posts</h1>
-  <form id="postForm">
-    <input type="text" id="title" placeholder="Post Title" required>
-    <textarea id="content" placeholder="Post Content" required></textarea>
-    <input type="text" id="user_id" placeholder="User ID" required>
-    <button type="submit">Create Post</button>
-  </form>
+  <h1>Blog</h1>
 
-  <div id="posts">
-    <h2>Title</h2>
-    <p>Content</p>
-    <button onclick="deletePost(3)">Delete</button>
-  </div>
-  
+  <button id="logoutBtn" style="display:none; float:right;">Logout</button>
+
+  <section id="registerSection">
+    <h2>Register</h2>
+    <form id="registerForm">
+      <input id="reg_username" placeholder="Username" required />
+      <input id="reg_password" type="password" placeholder="Password" required />
+      <button>Register</button>
+    </form>
+  </section>
+
+  <section id="loginSection">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input id="login_username" placeholder="Username" required />
+      <input id="login_password" type="password" placeholder="Password" required />
+      <button>Login</button>
+    </form>
+  </section>
+
+  <section id="createPostSection" style="display:none;">
+    <h2>Create Post</h2>
+    <form id="postForm">
+      <input id="title" placeholder="Post Title" required />
+      <textarea id="content" placeholder="Post Content" required></textarea>
+      <button>Create Post</button>
+    </form>
+  </section>
+
+  <section id="allPostsSection" style="display:none;">
+    <h2>All Posts</h2>
+    <div id="posts"></div>
+  </section>
 
   <script src="/js/script.js"></script>
 </body>
