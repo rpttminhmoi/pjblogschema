@@ -21,6 +21,9 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
+// Route cho comments
+app.use('/api/comments', require('./routes/comments'));
+
 // Khởi chạy server
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);

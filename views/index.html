@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Posts</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Blog with Comments</title>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-  <h1>Blog Posts</h1>
-  <form id="postForm">
-    <input type="text" id="title" placeholder="Post Title" required>
-    <textarea id="content" placeholder="Post Content" required></textarea>
-    <input type="text" id="user_id" placeholder="User ID" required>
-    <button type="submit">Create Post</button>
-  </form>
+  <h1>Simple Blog</h1>
 
-  <div id="posts">
-    <h2>Title</h2>
-    <p>Content</p>
-    <button onclick="deletePost(3)">Delete</button>
-  </div>
-  
+  <!-- FORM TẠO BÀI POST -->
+  <section id="createPostSection">
+    <h2>Create Post</h2>
+    <form id="postForm">
+      <input type="text" id="title" placeholder="Post Title" required /><br>
+      <textarea id="content" placeholder="Post Content" required></textarea><br>
+      <input type="text" id="username" placeholder="Your Username" required />
+      <button type="submit">Create Post</button>
+    </form>
+  </section>
+
+  <hr />
+
+  <!-- DANH SÁCH BÀI VIẾT -->
+  <section id="allPostsSection">
+    <h2>All Posts</h2>
+    <div id="posts"></div>
+  </section>
 
   <script src="/js/script.js"></script>
 </body>
