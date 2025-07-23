@@ -1,6 +1,11 @@
 const db = require('../db');
 
 module.exports = async (req, res, next) => {
+  // Bảo vệ: xác thực phải chạy trước middleware này
+  if (!req.user) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
   const postId = req.params.id;
   const userId = req.user.userId;
 
@@ -17,6 +22,7 @@ module.exports = async (req, res, next) => {
 
     next();
   } catch (err) {
-    return res.status(500).json({ error: 'DB error' });
+    console.error(err); // log lỗi để debug
+    return res.status(500).json({ error: 'Database error' });
   }
 };
