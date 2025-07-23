@@ -5,3 +5,4 @@ logs/
 dist/
 build/
 *.json
+test_db.js
