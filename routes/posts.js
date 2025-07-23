@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const authorizePostOwner = require('../middleware/authorizePostOwner');
 
 // GET tất cả posts + username
 router.get('/', async (req, res) => {
@@ -61,17 +62,17 @@ router.post('/', async (req, res) => {
 
 
 // Xoá post
-router.delete('/:id', async (req, res) => {
-  const { id } = req.params;
+router.delete('/:id', authorizePostOwner, async (req, res) => {
+  const postId = req.params.id;
+
   try {
-    await db.query('DELETE FROM posts WHERE id = $1', [id]);
-    res.json({ message: 'Deleted' });
+    await db.query('DELETE FROM posts WHERE id = $1', [postId]);
+    res.json({ message: 'Post deleted successfully' });
   } catch (err) {
-    res.status(500).json({ error: 'Delete failed' });
+    console.error('Delete post error:', err);
+    res.status(500).json({ error: 'Failed to delete post' });
   }
 });
-
-module.exports = router;
 
 // Sửa post
 router.put('/:id', async (req, res) => {
@@ -98,6 +99,7 @@ router.put('/:id', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
 // thêm comment vào post
 router.post('/:id/comments', async (req, res) => {
   const { id } = req.params;
@@ -138,3 +140,5 @@ router.post('/:id/comments', async (req, res) => {
   }
 }
 );
+
+module.exports = router;
